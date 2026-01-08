@@ -1,22 +1,25 @@
 void main() {
-  Human hamza = Human();
-  hamza.name = 'Hamza';
-  hamza.skinColor = 'White';
-  hamza.hight = 163;
-  hamza.wight = 48;
-  hamza.bloodType = 'A+';
+  Human hamza = Human(
+    name: 'Hamza',
+    skinColor: 'White',
+    hight: 163,
+    wight: 48,
+    bloodType: 'A+',
+    numberOfarms: 2,
+  );
   hamza.printInfo();
-  hamza.sleep();
+  hamza.walk();
 
-  Human ali = Human();
-  ali.name = 'Ali';
-  ali.skinColor = 'Black';
-  ali.hight = 180;
-  ali.wight = 80;
-  ali.bloodType = 'O';
-  ali.numberOfarms = 1;
+  Human ali = Human(
+    name: 'Ali',
+    skinColor: 'Black',
+    hight: 180,
+    wight: 80,
+    bloodType: 'O',
+    numberOfarms: 1,
+  );
   ali.printInfo();
-  ali.walk();
+  ali.sleep();
 }
 
 // [1] Create a class => Human
@@ -28,7 +31,33 @@ class Human {
   int? hight;
   int? wight;
   String? bloodType;
-  int numberOfarms = 2;
+  int? numberOfarms;
+
+  // Human({
+  //   required String name,
+  //   required String skinColor,
+  //   required int hight,
+  //   required int wight,
+  //   required String bloodType,
+  //   int? numberOfarms,
+  // }) {
+  //   this.name = name;
+  //   this.skinColor = skinColor;
+  //   this.hight = hight;
+  //   this.wight = wight;
+  //   this.bloodType = bloodType;
+  //   this.numberOfarms = numberOfarms;
+  // }
+
+  // Onther Way
+  Human({
+    required this.name,
+    required this.skinColor,
+    required this.hight,
+    required this.wight,
+    required this.bloodType,
+    this.numberOfarms,
+  });
 
   void sleep() {
     print("Human is sleeping");
